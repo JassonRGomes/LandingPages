@@ -836,9 +836,9 @@ section {
         scroll-padding-top: 80px; /* Smaller header on mobile */
     }
     
-    section {
-        padding-top: 6rem;
-        padding-bottom: 3rem;
+    section:not(.hero) {
+        padding-top: 3rem;
+        padding-bottom: 1.5rem;
     }
 
     .hamburger {

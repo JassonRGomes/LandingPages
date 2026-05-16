@@ -31,14 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ensure the video plays (sometimes browsers block autoplay)
     const video = document.getElementById('bg-video');
     if (video) {
-        // Attempt to play the video explicitly just in case
         video.play().catch(error => {
             console.log("Video autoplay was prevented by browser. User interaction needed.", error);
         });
 
-        // Force loop for mobile browsers that ignore the loop attribute
-        video.addEventListener('ended', () => {
-            video.play();
+        // Force loop for mobile browsers using timeupdate hack
+        video.addEventListener('timeupdate', () => {
+            // If we are within 0.2 seconds of the end, restart
+            if (video.duration && video.currentTime >= video.duration - 0.2) {
+                video.currentTime = 0;
+                video.play();
+            }
         });
     }
 
