@@ -833,12 +833,12 @@ section {
 
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 80px; /* Smaller header on mobile */
+        scroll-padding-top: 120px; /* Must match the height of the mobile header */
     }
     
     section:not(.hero) {
-        padding-top: 3rem;
-        padding-bottom: 1.5rem;
+        padding-top: 8rem; /* Enough padding so title isn't under header */
+        padding-bottom: 2rem;
     }
 
     .hamburger {

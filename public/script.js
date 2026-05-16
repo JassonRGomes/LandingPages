@@ -43,6 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 video.play();
             }
         });
+
+        // iOS strict autoplay fallback: play on first interaction
+        const playOnInteraction = () => {
+            if (video.paused) {
+                video.play();
+            }
+            document.removeEventListener('touchstart', playOnInteraction);
+            document.removeEventListener('scroll', playOnInteraction);
+            document.removeEventListener('click', playOnInteraction);
+        };
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+        document.addEventListener('scroll', playOnInteraction, { once: true });
+        document.addEventListener('click', playOnInteraction, { once: true });
     }
 
     // Smooth scrolling for anchor links
