@@ -29,7 +29,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 350px; /* Offset for sticky header with large logo */
+    scroll-padding-top: 120px;
 }
 
 body {
@@ -185,8 +185,8 @@ h2 {
 }
 
 .navbar.scrolled {
-    padding: 1rem 0;
-    background: linear-gradient(180deg, rgba(5, 5, 8, 0.98) 0%, rgba(5, 5, 8, 0.2) 100%);
+    padding: 0.8rem 0;
+    background: linear-gradient(180deg, rgba(5, 5, 8, 0.98) 0%, rgba(20, 25, 35, 0.95) 100%);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -204,6 +204,10 @@ h2 {
     max-height: 300px;
     display: block;
     transition: var(--transition);
+}
+
+.navbar.scrolled .logo-img {
+    max-height: 80px;
 }
 
 .logo-img:hover {
