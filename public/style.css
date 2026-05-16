@@ -832,6 +832,15 @@ section {
 }
 
 @media (max-width: 768px) {
+    html {
+        scroll-padding-top: 80px; /* Smaller header on mobile */
+    }
+    
+    section {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+
     .hamburger {
         display: flex;
     }

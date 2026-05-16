@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         video.play().catch(error => {
             console.log("Video autoplay was prevented by browser. User interaction needed.", error);
         });
+
+        // Force loop for mobile browsers that ignore the loop attribute
+        video.addEventListener('ended', () => {
+            video.play();
+        });
     }
 
     // Smooth scrolling for anchor links
