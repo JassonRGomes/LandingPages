@@ -85,6 +85,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add New Review Form functionality
     const reviewForm = document.getElementById('add-review-form');
+    
+    // Load saved reviews from localStorage
+    const savedReviews = JSON.parse(localStorage.getItem('excellence-reviews') || '[]');
+    savedReviews.forEach(review => {
+        const newSlide = document.createElement('div');
+        newSlide.className = 'review-card glass-panel carousel-slide';
+        newSlide.innerHTML = `
+            <div class="reviewer">
+                <div class="avatar" style="background: ${review.color};">${review.initials}</div>
+                <div class="info">
+                    <h4>${review.name}</h4>
+                    <span class="stars" style="color: #FBBC05;">${review.starsHtml}</span>
+                </div>
+            </div>
+            <p>"${review.text}"</p>
+        `;
+        if (track) track.appendChild(newSlide);
+    });
+    
+    if (track) {
+        slides = Array.from(track.children);
+    }
+
     if (reviewForm) {
         reviewForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -106,6 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Random color for avatar background
             const colors = ['#4285F4', '#34A853', '#EA4335', '#FBBC05', '#9C27B0', '#00BCD4'];
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // Save to localStorage
+            const reviewObj = { name, rating, text, initials, color: randomColor, starsHtml };
+            const existingReviews = JSON.parse(localStorage.getItem('excellence-reviews') || '[]');
+            existingReviews.push(reviewObj);
+            localStorage.setItem('excellence-reviews', JSON.stringify(existingReviews));
 
             // Create new slide element
             const newSlide = document.createElement('div');
