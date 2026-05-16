@@ -29,6 +29,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 350px; /* Offset for sticky header with large logo */
 }
 
 body {
@@ -185,7 +186,7 @@ h2 {
 
 .navbar.scrolled {
     padding: 1rem 0;
-    background: rgba(5, 5, 8, 0.85);
+    background: linear-gradient(180deg, rgba(5, 5, 8, 0.98) 0%, rgba(5, 5, 8, 0.2) 100%);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
 }
