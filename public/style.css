@@ -104,13 +104,13 @@ h1, h2, h3, h4 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
+    color: var(--primary);
+    -webkit-text-stroke: 1px #ffffff;
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--primary);
-    -webkit-text-stroke: 1px #ffffff;
 }
 
 .text-center {
@@ -157,13 +157,13 @@ h2 {
 
 .btn-primary-outline {
     background: transparent;
+    color: #FFD700; /* Golden text as requested */
     border: 2px solid var(--primary);
-    color: var(--primary);
 }
 
 .btn-primary-outline:hover {
     background: var(--primary);
-    color: #ffffff;
+    color: #FFD700;
 }
 
 .btn-large {
@@ -266,21 +266,22 @@ section {
 .badge {
     display: inline-block;
     padding: 0.4rem 1rem;
-    background: rgba(29, 53, 87, 0.1);
-    border: 1px solid rgba(29, 53, 87, 0.3);
+    background: #ffffff;
+    border: 1px solid #ffffff;
     color: var(--primary);
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero-title {
     font-size: 4.5rem;
     margin-bottom: 1.5rem;
-    color: var(--secondary);
+    color: var(--primary);
+    -webkit-text-stroke: 1px #ffffff;
 }
 
 .hero-subtitle {
