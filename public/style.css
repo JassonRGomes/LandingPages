@@ -109,9 +109,8 @@ h1, h2, h3, h4 {
 h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary);
+    -webkit-text-stroke: 1px #ffffff;
 }
 
 .text-center {
@@ -201,7 +200,7 @@ h2 {
 }
 
 .logo-img {
-    max-height: 50px;
+    max-height: 70px;
     display: block;
     transition: var(--transition);
 }
