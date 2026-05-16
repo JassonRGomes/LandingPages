@@ -1,7 +1,7 @@
 :root {
     /* Color Palette */
-    --primary: #00e5ff;
-    --primary-dark: #00b4d8;
+    --primary: #1D3557; /* Navy Blue from Paint Can/Logo */
+    --primary-dark: #122136;
     --secondary: #ffffff;
     --text-main: #f8f9fa;
     --text-muted: #ced4da;
@@ -133,12 +133,13 @@ h2 {
 
 .btn-primary {
     background: var(--primary);
-    color: #000;
-    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(29, 53, 87, 0.4);
 }
 
 .btn-primary:hover {
     background: var(--secondary);
+    color: var(--primary);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
 }
@@ -163,7 +164,7 @@ h2 {
 
 .btn-primary-outline:hover {
     background: var(--primary);
-    color: #000;
+    color: #ffffff;
 }
 
 .btn-large {
@@ -199,18 +200,14 @@ h2 {
     align-items: center;
 }
 
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--secondary);
-    text-decoration: none;
-    letter-spacing: 1px;
+.logo-img {
+    max-height: 50px;
+    display: block;
+    transition: var(--transition);
 }
 
-.logo span {
-    color: var(--primary);
-    font-weight: 300;
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -270,8 +267,8 @@ section {
 .badge {
     display: inline-block;
     padding: 0.4rem 1rem;
-    background: rgba(0, 229, 255, 0.1);
-    border: 1px solid rgba(0, 229, 255, 0.3);
+    background: rgba(29, 53, 87, 0.1);
+    border: 1px solid rgba(29, 53, 87, 0.3);
     color: var(--primary);
     border-radius: 50px;
     font-size: 0.85rem;
@@ -324,7 +321,7 @@ section {
 .service-card:hover {
     transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(0, 229, 255, 0.3);
+    border-color: rgba(29, 53, 87, 0.3);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -492,7 +489,7 @@ section {
 .pricing-card.featured {
     transform: scale(1.05);
     border-color: var(--primary);
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 0 30px rgba(29, 53, 87, 0.2);
 }
 
 .pricing-card.featured:hover {
@@ -733,7 +730,7 @@ section {
     outline: none;
     border-color: var(--primary);
     background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 0 15px rgba(29, 53, 87, 0.2);
 }
 
 .form-input option {
