@@ -836,6 +836,16 @@ section {
         display: flex;
     }
     
+    .logo-img {
+        max-height: 80px; /* Reduce massive logo size on mobile */
+        max-width: 60vw;
+        object-fit: contain;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
     .nav-links {
         position: fixed;
         top: 0;
