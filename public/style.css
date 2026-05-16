@@ -853,7 +853,15 @@ section {
     position: relative;
     display: inline-block;
     color: var(--primary);
-    text-shadow: none; /* Remove white shadow so red glow is visible */
+    text-shadow: 
+        -1.5px -1.5px 0 #fff, 
+        1.5px -1.5px 0 #fff, 
+        -1.5px 1.5px 0 #fff, 
+        1.5px 1.5px 0 #fff,
+        -1.5px 0 0 #fff,
+        1.5px 0 0 #fff,
+        0 -1.5px 0 #fff,
+        0 1.5px 0 #fff;
     z-index: 1;
 }
 
