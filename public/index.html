@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=15">
+    <link rel="stylesheet" href="style.css?v=23">
 </head>
 <body>
 
@@ -214,6 +214,60 @@
                         <p>Customer Rating</p>
                     </div>
                 </div>
+
+                <!-- Manager Profile -->
+                <div class="manager-profile">
+                    <div class="manager-photo">
+                        <img src="assets/victor.png" alt="Victor - Technical Manager">
+                    </div>
+                    <div class="manager-info">
+                        <h2 class="manager-title">Technical Manager</h2>
+                        <p class="manager-desc">
+                            Welcome to Excellence Detail. I'm Victor. A lifelong passion for all things automotive drives the standard we set here. Every vehicle we touch is treated with meticulous precision, delivering top-tier detailing that protects your investment and restores a pristine, showroom-ready finish. We take genuine pride in our craft, ensuring every client drives away with absolute satisfaction and a vehicle that truly turns heads.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Excellence Gallery Section -->
+            <div class="container gallery-container" style="margin-top: 6rem;">
+                <div class="section-header">
+                    <h2>Excellence Gallery</h2>
+                    <p>A closer look at our premium detailing results.</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <!-- Card 1 -->
+                    <div class="gallery-card" data-gallery="interiors">
+                        <div class="g-card-bg" style="background-image: url('assets/capa1.png');"></div>
+                        <div class="g-card-overlay"></div>
+                        <img src="assets/logo.png" alt="Logo" class="g-card-logo">
+                        <div class="g-card-content">
+                            <h3>Car Interiors</h3>
+                            <button class="btn-gallery-view">View More</button>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="gallery-card" data-gallery="beforeafter">
+                        <div class="g-card-bg" style="background-image: url('assets/capa2.png');"></div>
+                        <div class="g-card-overlay"></div>
+                        <img src="assets/logo.png" alt="Logo" class="g-card-logo">
+                        <div class="g-card-content">
+                            <h3>Before and After</h3>
+                            <button class="btn-gallery-view">View More</button>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="gallery-card" data-gallery="exterior">
+                        <div class="g-card-bg" style="background-image: url('assets/capa3.png');"></div>
+                        <div class="g-card-overlay"></div>
+                        <img src="assets/logo.png" alt="Logo" class="g-card-logo">
+                        <div class="g-card-content">
+                            <h3>Exterior and Detailing</h3>
+                            <button class="btn-gallery-view">View More</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -224,42 +278,16 @@
                     <h2>Our Prices</h2>
                     <p>Transparent pricing for premium services.</p>
                 </div>
-                <div class="pricing-grid">
-                    <div class="pricing-card glass-panel">
-                        <h3>Standard</h3>
-                        <div class="price"><span>$</span>99</div>
-                        <ul class="features">
-                            <li>Exterior Hand Wash</li>
-                            <li>Tire & Wheel Cleaning</li>
-                            <li>Interior Vacuum</li>
-                            <li>Window Cleaning</li>
-                        </ul>
-                        <a href="sms:+19453644215?body=Hello%20I%20would%20like%20to%20book%20the%20Standard%20package." class="btn-primary-outline">Choose Standard</a>
+                <div class="pricing-carousel-container">
+                    <button class="pricing-control prev" id="pricing-prev">❮</button>
+                    <div class="pricing-viewport">
+                        <div class="pricing-track" id="pricing-track">
+                            <!-- Dynamic Pricing Cards injected here by JS -->
+                        </div>
                     </div>
-                    <div class="pricing-card glass-panel featured">
-                        <div class="ribbon"><span style="color: #ff3333;">Best Value</span> <span style="color: #FFD700;">★</span></div>
-                        <h3>Excellence</h3>
-                        <div class="price"><span>$</span>199</div>
-                        <ul class="features">
-                            <li>Everything in Standard</li>
-                            <li>Hand Wax Application</li>
-                            <li>Interior Steam Clean</li>
-                            <li>Leather Conditioning</li>
-                        </ul>
-                        <a href="sms:+19453644215?body=Hello%20I%20would%20like%20to%20book%20the%20Excellence%20package." class="btn-primary">Choose Excellence</a>
-                    </div>
-                    <div class="pricing-card glass-panel">
-                        <h3>Premium</h3>
-                        <div class="price"><span>$</span>299</div>
-                        <ul class="features">
-                            <li>Everything in Lux</li>
-                            <li>Clay Bar Treatment</li>
-                            <li>Paint Sealant</li>
-                            <li>Engine Bay Detailing</li>
-                        </ul>
-                        <a href="sms:+19453644215?body=Hello%20I%20would%20like%20to%20book%20the%20Premium%20package." class="btn-primary-outline">Choose Premium</a>
-                    </div>
+                    <button class="pricing-control next" id="pricing-next">❯</button>
                 </div>
+                <div class="pricing-dots" id="pricing-dots"></div>
             </div>
         </section>
 
@@ -395,23 +423,47 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="container footer-content">
-                <div class="footer-brand">
-                    <img src="assets/logo.png" alt="Excellence Detail Logo" class="footer-logo-img" style="max-height: 60px;">
-                    <p>Premium mobile car detailing.</p>
-                </div>
-                <div class="footer-links">
-                    <p>&copy; 2026 Excellence Detail. All rights reserved.</p>
-                    <div class="socials">
-                        <a href="https://instagram.com/excellencedetail_" target="_blank" class="social-link">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            excellencedetail_
-                        </a>
-                        <a href="https://www.facebook.com/share/1NmQujGiNv/?mibextid=wwXIfr" target="_blank" class="social-link">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            Facebook
-                        </a>
+            <div class="container">
+                <div class="footer-top">
+                    <!-- Column 1 -->
+                    <div class="footer-col">
+                        <img src="assets/logo.png" alt="Excellence Detail Logo" class="footer-logo-img">
+                        <p class="footer-desc">Premium mobile car detailing. We bring the showroom shine directly to your driveway.</p>
                     </div>
+                    <!-- Column 2 -->
+                    <div class="footer-col">
+                        <h3>Contact</h3>
+                        <a href="sms:+19453644215" class="footer-link">+1 945 364 4215</a>
+                        <a href="mailto:excellencedetail01@gmail.com" class="footer-link">excellencedetail01@gmail.com</a>
+                        <div class="footer-socials" style="margin-top: 1rem;">
+                            <a href="https://instagram.com/excellencedetail_" target="_blank" class="social-icon" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            </a>
+                            <a href="https://www.facebook.com/share/1NmQujGiNv/?mibextid=wwXIfr" target="_blank" class="social-icon" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            </a>
+                        </div>
+                        <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">Designed by <a href="mailto:jassonrgomes@gmail.com" class="designer-link">Jay G.</a></p>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="footer-col">
+                        <h3>Opening Hours</h3>
+                        <div class="hours-row">
+                            <span>Mon - Fri</span>
+                            <span>8:00 am – 6:00 pm</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Saturday</span>
+                            <span>9:00 am – 6:00 pm</span>
+                        </div>
+                        <div class="service-area-badge">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Serving Dallas, Texas & Surrounding Areas
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom" style="justify-content: center;">
+                    <p>&copy; 2026 Excellence Detail. All rights reserved.</p>
                 </div>
             </div>
         </footer>
@@ -453,6 +505,41 @@
         </div>
     </div>
 
-    <script src="script.js?v=15"></script>
+    <!-- Gallery Carousel Modal -->
+    <div id="gallery-modal" class="modal gallery-modal">
+        <div class="modal-backdrop gallery-backdrop"></div>
+        <div class="modal-container gallery-modal-container">
+            <button class="modal-close gallery-close" aria-label="Close Gallery">✕</button>
+            <div class="gallery-content-inner">
+                <h2 id="gallery-modal-title">Gallery</h2>
+                <div class="carousel-wrapper">
+                    <button class="carousel-control prev" id="gallery-prev">❮</button>
+                    <div class="carousel-viewport">
+                        <div class="carousel-track" id="gallery-track">
+                            <!-- Dynamic images injected here -->
+                        </div>
+                    </div>
+                    <button class="carousel-control next" id="gallery-next">❯</button>
+                </div>
+                <div class="gallery-dots" id="gallery-dots"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Lightbox Modal -->
+    <div id="lightbox-modal" class="modal lightbox-modal">
+        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Fullscreen">✕</button>
+        <button class="lightbox-control prev" id="lightbox-prev">❮</button>
+        <div class="lightbox-img-wrapper">
+            <div class="lightbox-inner-wrapper">
+                <img src="assets/logo.png" alt="Excellence Detail Logo" class="gallery-popup-logo">
+                <img src="" alt="Fullscreen view" id="lightbox-img" class="lightbox-img">
+            </div>
+        </div>
+        <button class="lightbox-control next" id="lightbox-next">❯</button>
+    </div>
+
+    <script src="script.js?v=23"></script>
 </body>
 </html>

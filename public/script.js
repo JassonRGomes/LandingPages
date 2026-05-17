@@ -348,6 +348,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Exterior glass cleaning',
                 '3-in-1 polish compound with orbital foam pad machine'
             ]
+        },
+        'boat': {
+            title: 'Boat Detailing',
+            price: 'Custom Quote',
+            time: 'Varies',
+            desc: 'Comprehensive marine detailing to restore and protect your boat. We handle hull cleaning, oxidation removal, gel coat polishing, and marine ceramic coatings to keep your vessel protected from harsh water elements.',
+            bg: 'assets/boat.png',
+            included: [
+                'Hull wash and decontamination',
+                'Oxidation and water spot removal',
+                'Gel coat compounding and polishing',
+                'Marine ceramic coating or sealant',
+                'Interior vinyl seating cleaned and UV protected',
+                'Non-skid deck cleaning'
+            ]
         }
     };
 
@@ -422,4 +437,395 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================
+    // Excellence Gallery Logic
+    // ==========================================
+    const galleryData = {
+        'interiors': {
+            title: 'Car Interiors',
+            images: ['assets/inter1.png', 'assets/inter2.png', 'assets/inter3.png', 'assets/inter4.png', 'assets/inter5.png', 'assets/inter6.png']
+        },
+        'beforeafter': {
+            title: 'Before and After',
+            images: ['assets/ba1.png', 'assets/ba2.png', 'assets/ba3.png', 'assets/ba4.png', 'assets/ba5.png', 'assets/ba6.png']
+        },
+        'exterior': {
+            title: 'Exterior and Detailing',
+            images: ['assets/ecd1.png', 'assets/ecd2.png', 'assets/ecd3.png', 'assets/ecd4.png', 'assets/ecd5png.png', 'assets/ecd6.png', 'assets/ecd7.png', 'assets/ecd8.png', 'assets/ecd9.png', 'assets/ecd10.png', 'assets/ecd11.png', 'assets/ecd12.png']
+        }
+    };
+
+    const gModal = document.getElementById('gallery-modal');
+    const gModalTitle = document.getElementById('gallery-modal-title');
+    const gTrack = document.getElementById('gallery-track');
+    const gPrev = document.getElementById('gallery-prev');
+    const gNext = document.getElementById('gallery-next');
+    const gDots = document.getElementById('gallery-dots');
+    const gClose = document.querySelector('.gallery-close');
+    const gBackdrop = document.querySelector('.gallery-backdrop');
+    
+    let currentGallery = [];
+    let currentSlide = 0;
+
+    const renderGallery = () => {
+        gTrack.innerHTML = '';
+        gDots.innerHTML = '';
+        currentGallery.forEach((src, index) => {
+            // Slide Item
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide-item';
+            
+            // Image Wrapper (for accurate logo positioning)
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'gallery-img-wrapper';
+
+            // Add Logo only if not before and after
+            if (currentGalleryCategory !== 'beforeafter') {
+                const logo = document.createElement('img');
+                logo.src = 'assets/logo.png';
+                logo.className = 'gallery-popup-logo';
+                logo.alt = 'Excellence Detail Logo';
+                imgWrapper.appendChild(logo);
+            }
+
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Gallery Image ${index + 1}`;
+            img.className = 'gallery-main-img';
+            img.addEventListener('click', () => openLightbox(index));
+            
+            imgWrapper.appendChild(img);
+            slide.appendChild(imgWrapper);
+            gTrack.appendChild(slide);
+
+            // Dot
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            if(index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            gDots.appendChild(dot);
+        });
+        updateGalleryPosition();
+    };
+
+    const updateGalleryPosition = () => {
+        gTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    };
+
+    const goToSlide = (index) => {
+        currentSlide = index;
+        updateGalleryPosition();
+    };
+
+    const nextSlide = () => {
+        if (currentSlide < currentGallery.length - 1) {
+            currentSlide++;
+        } else {
+            currentSlide = 0; // wrap around
+        }
+        updateGalleryPosition();
+    };
+
+    const prevSlide = () => {
+        if (currentSlide > 0) {
+            currentSlide--;
+        } else {
+            currentSlide = currentGallery.length - 1; // wrap around
+        }
+        updateGalleryPosition();
+    };
+
+    let currentGalleryCategory = '';
+
+    const openGallery = (galleryId) => {
+        const data = galleryData[galleryId];
+        if(!data || !gModal) return;
+        gModalTitle.textContent = data.title;
+        currentGallery = data.images;
+        currentGalleryCategory = galleryId;
+        currentSlide = 0;
+        renderGallery();
+        gModal.classList.add('active');
+        document.body.classList.add('no-scroll');
+    };
+
+    const closeGallery = () => {
+        if(!gModal) return;
+        gModal.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    };
+
+    document.querySelectorAll('.gallery-card').forEach(card => {
+        card.addEventListener('click', () => {
+            openGallery(card.getAttribute('data-gallery'));
+        });
+    });
+
+    // Explicitly bind the "View More" buttons to ensure they work on all devices
+    document.querySelectorAll('.btn-gallery-view').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent duplicate firing if card also registers the click
+            const card = btn.closest('.gallery-card');
+            if (card) {
+                openGallery(card.getAttribute('data-gallery'));
+            }
+        });
+    });
+
+    if(gClose) gClose.addEventListener('click', closeGallery);
+    if(gBackdrop) gBackdrop.addEventListener('click', closeGallery);
+    if(gNext) gNext.addEventListener('click', nextSlide);
+    if(gPrev) gPrev.addEventListener('click', prevSlide);
+
+
+    // ==========================================
+    // Lightbox Logic
+    // ==========================================
+    const lbModal = document.getElementById('lightbox-modal');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbClose = document.getElementById('lightbox-close');
+    const lbPrev = document.getElementById('lightbox-prev');
+    const lbNext = document.getElementById('lightbox-next');
+    const lbBackdrop = document.getElementById('lightbox-backdrop');
+
+    let lbIndex = 0;
+
+    const openLightbox = (index) => {
+        lbIndex = index;
+        updateLightboxImage();
+        lbModal.classList.add('active');
+    };
+
+    const closeLightbox = () => {
+        lbModal.classList.remove('active');
+    };
+
+    const updateLightboxImage = () => {
+        lbImg.src = currentGallery[lbIndex];
+    };
+
+    const lbNextImage = () => {
+        if (lbIndex < currentGallery.length - 1) {
+            lbIndex++;
+        } else {
+            lbIndex = 0;
+        }
+        updateLightboxImage();
+    };
+
+    const lbPrevImage = () => {
+        if (lbIndex > 0) {
+            lbIndex--;
+        } else {
+            lbIndex = currentGallery.length - 1;
+        }
+        updateLightboxImage();
+    };
+
+    if(lbClose) lbClose.addEventListener('click', closeLightbox);
+    if(lbBackdrop) lbBackdrop.addEventListener('click', closeLightbox);
+    if(lbNext) lbNext.addEventListener('click', lbNextImage);
+    if(lbPrev) lbPrev.addEventListener('click', lbPrevImage);
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+        if (lbModal && lbModal.classList.contains('active')) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') lbNextImage();
+            if (e.key === 'ArrowLeft') lbPrevImage();
+        } else if (gModal && gModal.classList.contains('active')) {
+            if (e.key === 'Escape') closeGallery();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        }
+    });
+
+    // Touch Support for Gallery Carousel
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    if(gTrack) {
+        gTrack.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        gTrack.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+    }
+
+    const handleSwipe = () => {
+        if (touchEndX < touchStartX - 50) nextSlide();
+        if (touchEndX > touchStartX + 50) prevSlide();
+    };
+
+    // Touch Support for Lightbox
+    let lbTouchStartX = 0;
+    let lbTouchEndX = 0;
+
+    if(lbImg) {
+        lbImg.addEventListener('touchstart', e => {
+            lbTouchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        lbImg.addEventListener('touchend', e => {
+            lbTouchEndX = e.changedTouches[0].screenX;
+            if (lbTouchEndX < lbTouchStartX - 50) lbNextImage();
+            if (lbTouchEndX > lbTouchStartX + 50) lbPrevImage();
+        }, {passive: true});
+    }
+
+    // ==========================================
+    // Pricing Carousel Logic
+    // ==========================================
+    const pTrack = document.getElementById('pricing-track');
+    const pDotsContainer = document.getElementById('pricing-dots');
+    const pPrev = document.getElementById('pricing-prev');
+    const pNext = document.getElementById('pricing-next');
+    
+    if (pTrack) {
+        const serviceKeys = Object.keys(servicesData);
+        let currentPriceSlide = 0;
+        let priceAutoPlayInterval;
+
+        // Generate Cards
+        serviceKeys.forEach((key, index) => {
+            const data = servicesData[key];
+            
+            const wrapper = document.createElement('div');
+            wrapper.className = 'pricing-card-wrapper';
+            
+            const card = document.createElement('div');
+            card.className = `pricing-card glass-panel ${key === 'full' ? 'featured' : ''}`;
+            card.style.backgroundImage = `url('${data.bg}')`;
+            
+            let html = '';
+            if (key === 'full') {
+                html += `<div class="ribbon"><span style="color: #ff3333;">Best Value</span> <span style="color: #FFD700;">★</span></div>`;
+            }
+            
+            // Format price string to match design (e.g. "From $99")
+            let priceDisplay = data.price;
+            if (data.price.includes('$')) {
+                const parts = data.price.split('$');
+                priceDisplay = `${parts[0]}<span>$</span>${parts[1]}`;
+            }
+
+            html += `
+                <h3>${data.title}</h3>
+                <div class="price">${priceDisplay}</div>
+                <ul class="features">
+            `;
+            
+            // Take first 4 actual items (excluding bold headers) for the short pricing list
+            const listItems = data.included.filter(i => !i.includes('<b>')).slice(0, 4);
+            listItems.forEach(item => {
+                html += `<li>${item}</li>`;
+            });
+            
+            const smsBody = encodeURIComponent(`Hello I would like to book the ${data.title} service.`);
+            html += `
+                </ul>
+                <a href="sms:+19453644215?body=${smsBody}" class="${key === 'full' ? 'btn-primary' : 'btn-primary-outline'}">Choose Service</a>
+            `;
+            
+            card.innerHTML = html;
+            wrapper.appendChild(card);
+            pTrack.appendChild(wrapper);
+
+            // Dot
+            if (pDotsContainer) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if(index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToPriceSlide(index);
+                    resetPriceAutoPlay();
+                });
+                pDotsContainer.appendChild(dot);
+            }
+        });
+
+        const getCardsPerView = () => {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 4;
+        };
+
+        const updatePricePosition = () => {
+            const cardsPerView = getCardsPerView();
+            const wrapperWidth = pTrack.querySelector('.pricing-card-wrapper').offsetWidth;
+            pTrack.style.transform = `translateX(-${currentPriceSlide * wrapperWidth}px)`;
+            
+            // Recalculate max dots based on cards per view
+            const maxSlide = serviceKeys.length - cardsPerView;
+            
+            if (pDotsContainer) {
+                const dots = pDotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.style.display = index <= maxSlide ? 'block' : 'none';
+                    dot.classList.toggle('active', index === currentPriceSlide);
+                });
+            }
+        };
+
+        window.addEventListener('resize', updatePricePosition);
+
+        const goToPriceSlide = (index) => {
+            currentPriceSlide = index;
+            updatePricePosition();
+        };
+
+        const nextPriceSlide = () => {
+            const maxSlide = serviceKeys.length - getCardsPerView();
+            currentPriceSlide = (currentPriceSlide < maxSlide) ? currentPriceSlide + 1 : 0;
+            updatePricePosition();
+        };
+
+        const prevPriceSlide = () => {
+            const maxSlide = serviceKeys.length - getCardsPerView();
+            currentPriceSlide = (currentPriceSlide > 0) ? currentPriceSlide - 1 : maxSlide;
+            updatePricePosition();
+        };
+
+        if (pNext) {
+            pNext.addEventListener('click', () => {
+                nextPriceSlide();
+                resetPriceAutoPlay();
+            });
+        }
+        if (pPrev) {
+            pPrev.addEventListener('click', () => {
+                prevPriceSlide();
+                resetPriceAutoPlay();
+            });
+        }
+
+        // Auto-play logic
+        const startPriceAutoPlay = () => {
+            priceAutoPlayInterval = setInterval(nextPriceSlide, 8000); // 8 seconds for slower speed
+        };
+        const stopPriceAutoPlay = () => {
+            clearInterval(priceAutoPlayInterval);
+        };
+        const resetPriceAutoPlay = () => {
+            stopPriceAutoPlay();
+            startPriceAutoPlay();
+        };
+
+        // Pause on hover or touch
+        const pContainer = document.querySelector('.pricing-carousel-container');
+        if (pContainer) {
+            pContainer.addEventListener('mouseenter', stopPriceAutoPlay);
+            pContainer.addEventListener('mouseleave', startPriceAutoPlay);
+            pContainer.addEventListener('touchstart', stopPriceAutoPlay, {passive: true});
+            pContainer.addEventListener('touchend', startPriceAutoPlay, {passive: true});
+        }
+
+        startPriceAutoPlay();
+    }
 });
