@@ -844,13 +844,13 @@ section {
 
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 120px; /* Must match the height of the mobile header */
+        scroll-padding-top: 150px; /* Increased to fully clear the taller mobile header */
     }
     
     section:not(.hero) {
-        padding-top: 3rem; /* Reduced to remove massive gap */
-        padding-bottom: 2rem;
-        scroll-margin-top: 120px; /* Fallback for iOS Safari which ignores html scroll-padding */
+        padding-top: 5rem; /* Increased to give breathing room */
+        padding-bottom: 3rem;
+        scroll-margin-top: 150px; /* Fallback for iOS Safari */
     }
 
     .hamburger {
