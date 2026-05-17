@@ -492,15 +492,26 @@ section {
     margin-bottom: 0.5rem;
 }
 
-.socials a {
-    color: var(--secondary);
+.socials {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
     text-decoration: none;
-    margin-left: 1rem;
     font-size: 0.9rem;
     transition: var(--transition);
 }
 
-.socials a:hover {
+.social-link:hover {
     color: var(--primary);
 }
 
@@ -886,10 +897,15 @@ section {
     }
     .footer-content {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
+        padding-right: 80px; /* Leave space for the floating button */
     }
     .footer-links {
-        text-align: center;
+        text-align: left;
+    }
+    .socials {
+        justify-content: flex-start;
     }
     .carousel-btn {
         width: 40px;
