@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=10">
+    <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 
@@ -82,21 +82,110 @@
                     <p>Meticulous attention to detail for every part of your vehicle.</p>
                 </div>
                 
-                <div class="services-grid">
-                    <div class="service-card glass-panel">
-                        <div class="icon">✨</div>
-                        <h3>Exterior Wash & Wax</h3>
-                        <p>A comprehensive hand wash, foam bath, bug removal, tire dressing, and a premium wax coat to protect your paint.</p>
+                <div class="services-grid new-grid">
+                    <!-- Card 1 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/inout.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>In & Out Detail</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 1hr 30min</span>
+                            </div>
+                            <p class="card-text">Exterior: Foaming hand soap wash, tire dressing applied, door jambs and fuel compartment wiped down.<br><br>Interior: Light surface cleaning, cupholders thoroughly detailed, windows cleaned, interior air blowout, and full vacuuming.</p>
+                            <button class="btn-primary-outline btn-read-more" data-service="inout">Read More</button>
+                        </div>
                     </div>
-                    <div class="service-card glass-panel">
-                        <div class="icon">🧼</div>
-                        <h3>Interior Deep Clean</h3>
-                        <p>Vacuuming, steam cleaning, leather conditioning, window tint safe cleaning, and odor elimination.</p>
+                    <!-- Card 2 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/shine.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Shine Detail</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 2hr 30min</span>
+                            </div>
+                            <p class="card-text">Exterior: Hand wash with foaming cleanser, plastics treated with UV protection, ceramic wax coating applied to paintwork, tire gloss finish, and thorough cleaning of door jambs and fuel compartment.<br><br>Interior: Plastic and leather areas carefully cleaned and treated, leather nourished with conditioner, carpets and mats shampooed, and full interior vacuuming.</p>
+                            <button class="btn-primary-outline btn-read-more" data-service="shine">Read More</button>
+                        </div>
                     </div>
-                    <div class="service-card glass-panel">
-                        <div class="icon">💎</div>
-                        <h3>Ceramic Coating</h3>
-                        <p>Long-lasting protection against elements with an incredible glossy finish that keeps your car looking new.</p>
+                    <!-- Card 3 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/full.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Excellence Full Detail</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 4hr 30min</span>
+                            </div>
+                            <p class="card-text">Exterior: Foam hand wash, plastics treated with UV protection, paintwork clay bar decontamination, hand wax for shine and 6 months protection, tires dressed with shine, engine bay cleaned, and thorough wipe-down of door jambs and fuel cap area.<br><br>Interior: Fabric seats deeply shampooed and cleaned with extractor machine, plastic and leather surfaces detailed and protected, leather treated with conditioner, complete vacuuming, and deep carpet shampooing.</p>
+                            <button class="btn-primary-outline btn-read-more" data-service="full">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/interior.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Premium Interior Detail</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 3hr 30min</span>
+                            </div>
+                            <p class="card-text">Thorough vacuuming of all carpets, mats, seats, and hard-to-reach areas including pet hair. Deep shampooing of seats with advanced extraction for stain and odor removal. Carpet shampooing and extraction to lift embedded dirt and refresh fibers.</p>
+                            <button class="btn-primary-outline btn-read-more" data-service="interior">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/enhancer.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Shine Enhancer</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 5hrs</span>
+                            </div>
+                            <p class="card-text">Bring out the shine on your vehicle’s exterior with our Shine Enhancer. This all-inclusive service combines deep cleaning, polishing, and protective treatments designed to maximize shine and safeguard your vehicle’s paint.</p>
+                            <button class="btn-primary-outline btn-read-more" data-service="enhancer">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/paint.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>3 Stage Paint Correction</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 8hrs</span>
+                            </div>
+                            <p class="card-text">Experience our 3 Stage Paint Correction. This advanced treatment is designed to eliminate more than 85% of paint defects, bringing your vehicle’s finish to a near-perfect state.</p>
+                            <button class="btn-primary-outline btn-read-more" data-service="paint">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/ceramic.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Excellence Ceramic Coating</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 8hrs</span>
+                            </div>
+                            <p class="card-text">Ceramic coating is a liquid polymer applied to your vehicle’s paint that bonds at a molecular level, creating a durable protective layer that enhances shine and protects against UV rays, dirt, and minor scratches.</p>
+                            <button class="btn-primary-outline btn-read-more" data-service="ceramic">Read More</button>
+                        </div>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="service-card new-card">
+                        <div class="card-bg" style="background-image: url('assets/boat.png');"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Boat Cleaning</h3>
+                                <span class="est-time"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 3hr 30min</span>
+                            </div>
+                            <p class="card-text">Professional boat cleaning service designed to restore shine, cleanliness, and protection for your marine vessel.</p>
+                            <a href="#contact" class="btn-primary-outline btn-read-more">Request to Book</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -336,6 +425,34 @@
         </svg>
     </a>
 
-    <script src="script.js?v=9"></script>
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <div class="modal-bg" id="modal-bg"></div>
+            <div class="modal-overlay"></div>
+            <button class="modal-close" id="modal-close" aria-label="Close Modal">✕</button>
+            <div class="modal-content-inner">
+                <h2 id="modal-title">Service Title</h2>
+                <div class="modal-meta">
+                    <span id="modal-price">From $99</span> | <span id="modal-time">1hr 30min</span>
+                </div>
+                <div class="modal-desc" id="modal-desc">
+                    Description
+                </div>
+                <div class="modal-included">
+                    <h3>What's included</h3>
+                    <ul id="modal-list">
+                        <!-- Dynamic list items -->
+                    </ul>
+                </div>
+                <div class="modal-actions">
+                    <a href="#contact" class="btn-primary modal-book-btn" id="modal-book-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=15"></script>
 </body>
 </html>
