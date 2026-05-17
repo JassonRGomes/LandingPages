@@ -826,6 +826,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pContainer.addEventListener('touchend', startPriceAutoPlay, {passive: true});
         }
 
+        updatePricePosition();
         startPriceAutoPlay();
     }
 });
