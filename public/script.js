@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 // Adjust for fixed header height
-                const headerOffset = window.innerWidth <= 768 ? 200 : 120;
+                const headerOffset = window.innerWidth <= 768 ? 160 : 120;
                 const elementPosition = targetElement.offsetTop;
                 const offsetPosition = elementPosition - headerOffset;
 
