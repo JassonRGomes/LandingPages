@@ -73,7 +73,7 @@ body {
     height: 100%;
     background: var(--overlay-color);
     /* Subtle radial gradient to focus on center */
-    background: radial-gradient(circle at center, rgba(10,10,15,0.6) 0%, rgba(5,5,8,0.9) 100%);
+    background: radial-gradient(circle at center, rgba(10,10,15,0.85) 0%, rgba(5,5,8,0.98) 100%);
 }
 
 /* ==========================================================================
@@ -850,6 +850,7 @@ section {
     section:not(.hero) {
         padding-top: 3rem; /* Reduced to remove massive gap */
         padding-bottom: 2rem;
+        scroll-margin-top: 120px; /* Fallback for iOS Safari which ignores html scroll-padding */
     }
 
     .hamburger {
