@@ -844,13 +844,13 @@ section {
 
 @media (max-width: 768px) {
     html {
-        scroll-padding-top: 160px; /* Matched to new 160px offset */
+        scroll-padding-top: 120px; /* Matched to new 120px offset */
     }
     
     section:not(.hero) {
         padding-top: 5rem; /* Increased to give breathing room */
         padding-bottom: 3rem;
-        scroll-margin-top: 160px; /* Fallback for iOS Safari */
+        scroll-margin-top: 120px; /* Fallback for iOS Safari */
     }
 
     .hamburger {
