@@ -45,12 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Fallback for Safari strict mode
                 const forcePlay = () => {
+                    video.volume = 0; // Completely silence the video
                     video.play();
-                    document.body.removeEventListener('touchstart', forcePlay);
-                    document.body.removeEventListener('click', forcePlay);
+                    window.removeEventListener('touchstart', forcePlay);
+                    window.removeEventListener('touchmove', forcePlay);
+                    window.removeEventListener('click', forcePlay);
+                    window.removeEventListener('scroll', forcePlay);
                 };
-                document.body.addEventListener('touchstart', forcePlay, { once: true });
-                document.body.addEventListener('click', forcePlay, { once: true });
+                window.addEventListener('touchstart', forcePlay, { once: true });
+                window.addEventListener('touchmove', forcePlay, { once: true });
+                window.addEventListener('click', forcePlay, { once: true });
+                window.addEventListener('scroll', forcePlay, { once: true });
             });
         }
 

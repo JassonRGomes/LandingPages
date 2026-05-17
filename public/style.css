@@ -837,7 +837,7 @@ section {
     }
     
     section:not(.hero) {
-        padding-top: 8rem; /* Enough padding so title isn't under header */
+        padding-top: 3rem; /* Reduced to remove massive gap */
         padding-bottom: 2rem;
     }
 
