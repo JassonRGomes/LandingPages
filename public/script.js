@@ -28,34 +28,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ensure the video plays (sometimes browsers block autoplay)
+    // Ensure the video plays (Safari Mobile can be extremely strict)
     const video = document.getElementById('bg-video');
     if (video) {
-        video.play().catch(error => {
-            console.log("Video autoplay was prevented by browser. User interaction needed.", error);
-        });
+        // Explicitly set properties that Safari requires
+        video.defaultMuted = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.autoplay = true;
+        
+        // Try to play
+        let playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log("Safari blocked autoplay. Waiting for interaction.", error);
+                
+                // Fallback for Safari strict mode
+                const forcePlay = () => {
+                    video.play();
+                    document.body.removeEventListener('touchstart', forcePlay);
+                    document.body.removeEventListener('click', forcePlay);
+                };
+                document.body.addEventListener('touchstart', forcePlay, { once: true });
+                document.body.addEventListener('click', forcePlay, { once: true });
+            });
+        }
 
         // Force loop for mobile browsers using timeupdate hack
         video.addEventListener('timeupdate', () => {
-            // If we are within 0.2 seconds of the end, restart
             if (video.duration && video.currentTime >= video.duration - 0.2) {
                 video.currentTime = 0;
                 video.play();
             }
         });
-
-        // iOS strict autoplay fallback: play on first interaction
-        const playOnInteraction = () => {
-            if (video.paused) {
-                video.play();
-            }
-            document.removeEventListener('touchstart', playOnInteraction);
-            document.removeEventListener('scroll', playOnInteraction);
-            document.removeEventListener('click', playOnInteraction);
-        };
-        document.addEventListener('touchstart', playOnInteraction, { once: true });
-        document.addEventListener('scroll', playOnInteraction, { once: true });
-        document.addEventListener('click', playOnInteraction, { once: true });
     }
 
     // Smooth scrolling for anchor links
