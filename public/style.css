@@ -356,7 +356,15 @@ section {
     font-size: 4.5rem;
     margin-bottom: 1.5rem;
     color: var(--primary);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+    text-shadow: 
+        -1.5px -1.5px 0 #fff, 
+         1.5px -1.5px 0 #fff, 
+        -1.5px  1.5px 0 #fff, 
+         1.5px  1.5px 0 #fff,
+        -1.5px  0     0 #fff,
+         1.5px  0     0 #fff,
+         0     -1.5px 0 #fff,
+         0      1.5px 0 #fff;
 }
 
 .hero-subtitle {
@@ -1324,28 +1332,36 @@ body.no-scroll {
 }
 
 .neon-silver-email {
-    color: #FFEA70; /* Light Yellow */
+    color: #fff;
     text-shadow: 
-        -1px -1px 0 #fff, 
-         1px -1px 0 #fff, 
-        -1px  1px 0 #fff, 
-         1px  1px 0 #fff;
+        -1.5px -1.5px 0 #D4AF37, 
+         1.5px -1.5px 0 #D4AF37, 
+        -1.5px  1.5px 0 #D4AF37, 
+         1.5px  1.5px 0 #D4AF37,
+        -1.5px  0     0 #D4AF37,
+         1.5px  0     0 #D4AF37,
+         0     -1.5px 0 #D4AF37,
+         0      1.5px 0 #D4AF37;
     text-decoration: none;
     font-weight: bold;
     transition: var(--transition);
 }
 
 .neon-silver-email:hover {
-    color: #FFF;
+    color: #FFD700;
 }
 
 .neon-silver-email:active {
     color: var(--primary); /* Blue when clicked */
     text-shadow: 
-        -1px -1px 0 #fff, 
-         1px -1px 0 #fff, 
-        -1px  1px 0 #fff, 
-         1px  1px 0 #fff;
+        -1.5px -1.5px 0 #fff, 
+         1.5px -1.5px 0 #fff, 
+        -1.5px  1.5px 0 #fff, 
+         1.5px  1.5px 0 #fff,
+        -1.5px  0     0 #fff,
+         1.5px  0     0 #fff,
+         0     -1.5px 0 #fff,
+         0      1.5px 0 #fff;
 }
 
 .shine-effect {
@@ -1494,10 +1510,18 @@ body.no-scroll {
 }
 
 .g-card-content h3 {
-    color: #fff;
+    color: var(--primary);
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    text-shadow: 
+        -1.5px -1.5px 0 #fff, 
+         1.5px -1.5px 0 #fff, 
+        -1.5px  1.5px 0 #fff, 
+         1.5px  1.5px 0 #fff,
+        -1.5px  0     0 #fff,
+         1.5px  0     0 #fff,
+         0     -1.5px 0 #fff,
+         0      1.5px 0 #fff;
     font-weight: 600;
 }
 
