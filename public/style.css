@@ -602,7 +602,16 @@ section {
 }
 
 .footer-col h3 {
-    color: #fff;
+    color: var(--primary);
+    text-shadow: 
+        -1.5px -1.5px 0 #fff, 
+         1.5px -1.5px 0 #fff, 
+        -1.5px  1.5px 0 #fff, 
+         1.5px  1.5px 0 #fff,
+        -1.5px  0     0 #fff,
+         1.5px  0     0 #fff,
+         0     -1.5px 0 #fff,
+         0      1.5px 0 #fff;
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
