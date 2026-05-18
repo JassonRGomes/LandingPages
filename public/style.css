@@ -106,7 +106,8 @@ h1, h2, h3, h4 {
     font-weight: 700;
     line-height: 1.2;
     color: var(--primary);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: none;
 }
 
 h2 {
@@ -1321,14 +1322,16 @@ body.no-scroll {
 
 .neon-silver-email {
     color: var(--primary);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: none;
     text-decoration: none;
     font-weight: bold;
     transition: var(--transition);
 }
 
 .neon-silver-email:hover {
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 35px rgba(255, 255, 255, 0.8);
+    -webkit-text-stroke: 1.5px #fff;
+    text-shadow: none;
     color: var(--primary);
 }
 
