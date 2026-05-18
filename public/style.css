@@ -1366,19 +1366,19 @@ body.no-scroll {
     }
 }
 
-.neon-silver-email {
+.sub-text a.neon-silver-email {
     color: #FFD700;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: bold;
     transition: var(--transition);
 }
 
-.neon-silver-email:hover {
+.sub-text a.neon-silver-email:hover {
     color: #fff;
     text-decoration: underline;
 }
 
-.neon-silver-email:active {
+.sub-text a.neon-silver-email:active {
     color: var(--primary);
     text-decoration: underline;
 }
