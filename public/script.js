@@ -364,15 +364,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const imgWrapper = document.createElement('div');
             imgWrapper.className = 'gallery-img-wrapper';
 
-            // Add Logo only if not before and after
-            if (currentGalleryCategory !== 'beforeafter') {
-                const logo = document.createElement('img');
-                logo.src = 'assets/logo.png';
-                logo.className = 'gallery-popup-logo';
-                logo.alt = 'Excellence Detail Logo';
-                imgWrapper.appendChild(logo);
-            }
-
             const img = document.createElement('img');
             img.src = src;
             img.alt = `Gallery Image ${index + 1}`;

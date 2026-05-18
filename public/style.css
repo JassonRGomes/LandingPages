@@ -960,7 +960,33 @@ section {
    Reviews Section
    ========================================================================== */
 .google-logo {
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.google-text {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    line-height: 1.2;
+    display: inline-block;
+}
+
+.google-stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.google-stars .star {
+    color: #FBBC05;
+    font-size: 2.2rem;
+    line-height: 1;
 }
 
 .trustindex-widget-container {
