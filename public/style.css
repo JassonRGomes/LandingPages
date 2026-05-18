@@ -1332,36 +1332,20 @@ body.no-scroll {
 }
 
 .neon-silver-email {
-    color: #fff;
-    text-shadow: 
-        -1.5px -1.5px 0 #D4AF37, 
-         1.5px -1.5px 0 #D4AF37, 
-        -1.5px  1.5px 0 #D4AF37, 
-         1.5px  1.5px 0 #D4AF37,
-        -1.5px  0     0 #D4AF37,
-         1.5px  0     0 #D4AF37,
-         0     -1.5px 0 #D4AF37,
-         0      1.5px 0 #D4AF37;
+    color: #FFD700;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     transition: var(--transition);
 }
 
 .neon-silver-email:hover {
-    color: #FFD700;
+    color: #fff;
+    text-decoration: underline;
 }
 
 .neon-silver-email:active {
-    color: var(--primary); /* Blue when clicked */
-    text-shadow: 
-        -1.5px -1.5px 0 #fff, 
-         1.5px -1.5px 0 #fff, 
-        -1.5px  1.5px 0 #fff, 
-         1.5px  1.5px 0 #fff,
-        -1.5px  0     0 #fff,
-         1.5px  0     0 #fff,
-         0     -1.5px 0 #fff,
-         0      1.5px 0 #fff;
+    color: var(--primary);
+    text-decoration: underline;
 }
 
 .shine-effect {
@@ -1554,7 +1538,16 @@ body.no-scroll {
 }
 
 .gallery-content-inner h2 {
-    color: #fff;
+    color: var(--primary);
+    text-shadow: 
+        -1.5px -1.5px 0 #fff, 
+         1.5px -1.5px 0 #fff, 
+        -1.5px  1.5px 0 #fff, 
+         1.5px  1.5px 0 #fff,
+        -1.5px  0     0 #fff,
+         1.5px  0     0 #fff,
+         0     -1.5px 0 #fff,
+         0      1.5px 0 #fff;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2.2rem;
